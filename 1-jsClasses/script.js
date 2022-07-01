@@ -2,27 +2,23 @@ class Usuario {
     constructor (nombre, apellido, libros, mascotas){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.libros = libros;
-        this.mascotas = mascotas;
+        this.libros = libros || [];
+        this.mascotas = mascotas || [];
     }
     getFullName(){
-        console.log(`${this.nombre} ${this.apellido}`)
+        return`${this.nombre} ${this.apellido}`
     }
     addMascotas(mascota){
         this.mascotas.push(mascota)
     }
     countMascotas(){
-        console.log(this.mascotas.length)
+        return this.mascotas.length
     }
     addBook(nombre, autor){
         this.libros.push({nombre, autor})
     }
     getBookNames(){
-        let bookNames = [];
-        for (let i=0; i<this.libros.length; i+=1) {
-            bookNames.push(this.libros[i].nombre)
-        }
-        console.log(bookNames)
+        return this.libros.map(libro => libro.nombre)
     }
 }
 
