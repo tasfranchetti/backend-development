@@ -4,9 +4,9 @@ CODER HOUSE - Deliverables
 
 ================================
 
-# SUMMARY
+## SUMMARY
 
-## Clases
+## Classes
 
 ```
 > sample@1.0.0 dev
