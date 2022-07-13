@@ -22,11 +22,4 @@ class Usuario {
     }
 }
 
-const user1 = new Usuario("Pepe", "Argento", [], [])
-
-user1.getFullName() // Pepe Argento
-user1.addMascotas("Fatiga") // void
-user1.countMascotas() // 1
-user1.addBook("El libro de la buena memoria", "Anónimo") // void
-user1.getBookNames() // [ 'El libro de la buena memoria' ]
-console.log(user1.libros)
+module.exports = Usuario;
