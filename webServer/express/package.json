@@ -7,6 +7,6 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tas",
   "license": "ISC" 
 }

@@ -9,7 +9,7 @@ CODER HOUSE - Deliverables
 ## Classes
 
 ```
-> sample@1.0.0 dev
+> classes@1.0.0 dev
 > node test.js
 
 Pepe Argento
@@ -20,7 +20,7 @@ Pepe Argento
 ## File System
 
 ```
-> sample@1.0.0 dev
+> file-system@1.0.0 dev
 > node test.js
 
 5
