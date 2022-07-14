@@ -3,3 +3,4 @@ node_modules
 nodePlayground
 serverPlayground
 syncScript.js
+package-lock.json

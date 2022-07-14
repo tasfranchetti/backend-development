@@ -13,7 +13,7 @@ class Container {
   //Returns info from file
   async getAll(){
     try {
-      const contentTxt = await fs.promises.readFile(`${this.fileName}`);
+      const contentTxt = await fs.promises.readFile(`${this.fileName}`, 'utf-8');
       let content = JSON.parse(contentTxt);
       return content;
     }

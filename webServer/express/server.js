@@ -22,14 +22,14 @@ app.get('/', (req, res) => {
 app.get('/products', async (req, res) => {
     await productos.getAll()
     .then(
-        products => res.send(`List of all products: ${JSON.stringify(products)}`)
+        products => res.send(products)
         )
 })
 
 app.get('/randomProduct', async (req, res) => {
     await productos.getRandom()
     .then(
-        product => res.send(`The random product is: ${JSON.stringify(product)}`)
+        product => res.send(product)
     )
 })
 
