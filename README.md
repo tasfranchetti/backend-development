@@ -9,6 +9,8 @@ CODER HOUSE - Deliverables
 ## Classes
 
 ```
+$ npm run dev
+
 > classes@1.0.0 dev
 > node test.js
 
@@ -20,6 +22,8 @@ Pepe Argento
 ## File System
 
 ```
+$ npm run dev
+
 > file-system@1.0.0 dev
 > node test.js
 
@@ -55,5 +59,9 @@ The ID searched does not exists
 ## Web Server
 
 ```
+$ npm run dev
+
+> express@1.0.0 dev
+> nodemon server.js
 
 ```
