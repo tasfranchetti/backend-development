@@ -1,7 +1,4 @@
-/*
-Sample products.txt:
-[{"title":"Hojas","price":2.50,"thumbnail":"https://img.com/","id":1},{"title":"Cuaderno","price":5.5,"thumbnail":"https://img.com/","id":2},{"title":"Mochila","price":15,"thumbnail":"https://img.com/","id":3},{"title":"Lapicera","price":0.5,"thumbnail":"https://img.com/","id":4}]
-*/
+
 const Container = require('./script.js');
 
 const productos = new Container('./products.txt')
@@ -14,6 +11,8 @@ const sample =  {
 
 //Testing
 const testing = async () => {
+
+    //await productos.loadFile();
 
     const idSample = await productos.save(sample);
     console.log(idSample);
