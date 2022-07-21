@@ -6,13 +6,13 @@ const productos = new Container('./products.txt')
 const sample =  {                                                                                                                                                    
     title: 'Pincel',                                                                                                                          
     price: 3.25,                                                                                                                                     
-    thumbnail: 'https://img.com/',                                                                                                                                             
+    thumbnail: 'https://img.com/'                                                                                                                                             
   }   
 
 //Testing
 const testing = async () => {
 
-    //await productos.loadFile();
+    await productos.loadFile();
 
     const idSample = await productos.save(sample);
     console.log(idSample);
