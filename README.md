@@ -22,21 +22,30 @@ Pepe Argento
 ## File System
 
 ```
-$ npm run dev
+$ npm run start
 
-> file-system@1.0.0 dev
+> file-system@1.0.1 
 > node test.js
 
 5
 [
-  { title: 'Hojas', price: 2.5, thumbnail: 'https://img.com/', id: 1 },
+  { 
+    title: 'Hojas', 
+    price: 2.5, 
+    thumbnail: 'https://img.com/', 
+    id: 1 
+  },
   {
     title: 'Cuaderno',
     price: 5.5,
     thumbnail: 'https://img.com/',
     id: 2
   },
-  { title: 'Mochila', price: 15, thumbnail: 'https://img.com/', id: 3 },
+  { 
+    title: 'Mochila', 
+    price: 15, 
+    thumbnail: 'https://img.com/', 
+    id: 3 },
   {
     title: 'Lapicera',
     price: 0.5,
