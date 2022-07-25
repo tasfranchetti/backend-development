@@ -48,20 +48,18 @@ class Container {
   }
 
   async updateByID(id, product) {
+    const intId = parseInt(id);
     try {
       const content = await this.readFile()
-      const result = content.find(i => i.id == id);
+      const result = content.find(i => i.id === intId);
       if (!result) {
         return {error : 'producto no encontrado'};
       } else {
-        const updatedContent = content.map(obj =>{
-          if (obj.id == id) {
-            return {...product, id: id} 
-          }
-        })
+        const updatedContent = content.map(obj =>
+          obj.id === intId ? {...product, id: intId} : obj
+          )
         const newContentTxt = JSON.stringify(updatedContent)
         await fs.promises.writeFile(`${this.fileName}`, newContentTxt)
-        return "Product updated";
       }      
     }
     catch(err) {
