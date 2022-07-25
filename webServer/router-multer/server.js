@@ -1,15 +1,19 @@
-const express = require('express')
+const express = require('express');
 
-const Container = require('./resources/container')
-const dbName = './resources/products.json'
-const container = new Container(dbName)
-const productRouter = require('./resources/router')
+const Container = require('./resources/container');
+const dbName = './resources/products.json';
+const container = new Container(dbName);
+const productRouter = require('./resources/router');
+const productStorage = async () => {
+  let storage = await container.readFile();
+  return storage || [];
+}
 
-const app = express()
+const app = express();
 const PORT = 8080;
 
 //Te app is able to receive json and urlencoded
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //static files usage
