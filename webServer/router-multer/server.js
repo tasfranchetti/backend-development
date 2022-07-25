@@ -1,10 +1,9 @@
 const express = require('express')
-const multer = require('multer')
-const {Router} = express;
 
-const Container = require('./resources/script')
-const dbName = './products.txt'
+const Container = require('./resources/container')
+const dbName = './resources/products.json'
 const container = new Container(dbName)
+const productRouter = require('./resources/router')
 
 const app = express()
 const PORT = 8080;
@@ -16,52 +15,46 @@ app.use(express.urlencoded({extended: true}));
 //static files usage
 app.use(express.static("public"));
 
-//Using the routers
-const productRouter = Router();
-
-(async () => {
-    await container.loadFile();
-})();
- 
 //GET api/products
 productRouter.get("/", async (req, res)=>{ 
     const list = await container.getAll();
     res.json(list);
     //res.send(list)
     //console.log(req.query) //
-})
-
-//GET api/products/:id
-productRouter.get("/:id", async (req, res)=>{ 
+  })
+  
+  //GET api/products/:id
+  productRouter.get("/:id", async (req, res)=>{ 
     const id = req.params.id;
     const product = await container.getById(id);
     res.json(product);
-
-})
-
-//POST api/products
-productRouter.post("/", async (req, res)=>{
+  
+  })
+  
+  //POST api/products
+  productRouter.post("/", async (req, res)=>{
     const product = req.body;
     await container.save(product);
     res.json(product);
-})
-
-//PUT api/products/:id
-productRouter.put("/:id", async (req, res)=>{
+  })
+  
+  //PUT api/products/:id
+  productRouter.put("/:id", async (req, res)=>{
     const id = req.params.id
     const product = req.body;
     await container.updateByID(id, product);
     const updatedProduct = await container.getById(id);
     res.json(updatedProduct);
-})
-
-//DELETE api/products/:id
-productRouter.delete("/:id", async (req, res)=>{
+  })
+  
+  //DELETE api/products/:id
+  productRouter.delete("/:id", async (req, res)=>{
     const id = req.params.id
     await container.deleteById(id);
     res.json(`Producto: ${id} eliminado con éxito`);
-})
-
+  })
+  
+ 
 app.use('/api/products', productRouter);
 
 const server = app.listen(PORT, (req, res)=>{

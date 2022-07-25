@@ -6,15 +6,7 @@ class Container {
   constructor(fileName) {
     this.fileName = fileName;
   }
-  async loadFile() {
-    try {
-      const content = '[{"title":"Hojas","price":2.50,"thumbnail":"https://img.com/","id":1},{"title":"Cuaderno","price":5.5,"thumbnail":"https://img.com/","id":2},{"title":"Mochila","price":15,"thumbnail":"https://img.com/","id":3},{"title":"Lapicera","price":0.5,"thumbnail":"https://img.com/","id":4}]'
-      await fs.promises.writeFile(this.fileName, content);
-    } catch(err) {
-      return "Error loading txt content, please try again";
-    }
-  }
-
+  
   async readFile() {
     try {
       const contentTxt = await fs.promises.readFile(`${this.fileName}`);
@@ -123,3 +115,5 @@ class Container {
 
 module.exports = Container;
 
+//Example file:
+//[{"title":"Hojas","price":2.50,"thumbnail":"https://img.com/","id":1},{"title":"Cuaderno","price":5.5,"thumbnail":"https://img.com/","id":2},{"title":"Mochila","price":15,"thumbnail":"https://img.com/","id":3},{"title":"Lapicera","price":0.5,"thumbnail":"https://img.com/","id":4}]
