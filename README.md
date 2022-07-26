@@ -1,12 +1,16 @@
 # Backend Development course
-CODER HOUSE - Deliverables
+CODER HOUSE - Course deliverables
 
+This is a compilation of all projects developed during my course. 
 
-================================
+The names of each section corresponds to it's directory name and is linked to the tool or concept we were learning on such session.
+============================================
+
 
 ## SUMMARY
 
 ## Classes
+tasfranchetti/backend-development/classes
 
 ```
 $ npm install
@@ -21,6 +25,7 @@ Pepe Argento
 ```
 
 ## File System
+tasfranchetti/backend-development/fileSystem
 
 ```
 $ npm install
@@ -68,8 +73,10 @@ The ID searched does not exists
 ```
 
 ## Web Server
+tasfranchetti/backend-development/webServer
 
 ### Express
+./express
 
 ```
 $ npm install
@@ -81,6 +88,7 @@ $ npm run dev
 ```
 
 ### Router-multer
+./router-multer
 
 ```
 $ npm install
@@ -98,7 +106,7 @@ Endpoints:
 * PUT: localhost:8080/api/products/:id
   Body (Raw - JSON)
   {
-    "title":"Corcho",
+    "title":"Cuaderno",
     "price":6.0,
     "thumbnail":"https://img.com/"
   }
