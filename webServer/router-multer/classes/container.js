@@ -1,6 +1,4 @@
-const { triggerAsyncId } = require("async_hooks");
 const fs = require("fs");
-
 
 class Container {
   constructor(fileName) {
