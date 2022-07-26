@@ -9,6 +9,7 @@ CODER HOUSE - Deliverables
 ## Classes
 
 ```
+$ npm install
 $ npm run dev
 
 > classes@1.0.0 dev
@@ -22,6 +23,7 @@ Pepe Argento
 ## File System
 
 ```
+$ npm install
 $ npm run start
 
 > file-system@1.0.1 
@@ -67,10 +69,24 @@ The ID searched does not exists
 
 ## Web Server
 
+### Express
+
 ```
+$ npm install
 $ npm run dev
 
 > express@1.0.0 dev
+> nodemon server.js
+
+```
+
+### Router-multer
+
+```
+$ npm install
+$ npm run dev
+
+> express@1.0.4 dev
 > nodemon server.js
 
 ```
