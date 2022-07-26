@@ -89,4 +89,19 @@ $ npm run dev
 > express@1.0.4 dev
 > nodemon server.js
 
+- API testing with Postman - 
+Endpoints:
+
+* GET: localhost:8080/api/products/
+* GET: localhost:8080/api/products/:id
+* POST: localhost:8080/api/products/
+* PUT: localhost:8080/api/products/:id
+  Body (Raw - JSON)
+  {
+    "title":"Corcho",
+    "price":6.0,
+    "thumbnail":"https://img.com/"
+  }
+* DELETE: localhost:8080/api/products/:id
+
 ```
