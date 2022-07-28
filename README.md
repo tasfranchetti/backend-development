@@ -4,7 +4,6 @@ CODER HOUSE - Course deliverables
 This is a compilation of all projects developed during my course. 
 
 The names of each section corresponds to it's directory name and is linked to the tool or concept we were learning on such session.
-
 ============================================
 
 
