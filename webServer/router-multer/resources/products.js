@@ -1,6 +1,18 @@
-const Container = require('../classes/container');
+//Memory storage option
+//Add the multiple line comment signs to use the file storage option below
+
+const ContainerMemmory = require('../classes/contMem');
+const products = new ContainerMemmory();
+
+/*
+//File storage option
+//Remove the multiple line comment signs to use this file storage option
+
+const ContainerFile = require('../classes/contFile');
 const dbName = './resources/products.json';
-const products = new Container(dbName);
+const products = new ContainerFile(dbName);
+
+*/
 
 //Callbacks for router class
 const getAllProducts = async (req, res)=>{ 

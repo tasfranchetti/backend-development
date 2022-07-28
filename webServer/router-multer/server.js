@@ -1,7 +1,7 @@
 const express = require('express');
 const productRouter = require('./classes/router');
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 const productStorage = async () => {
   const storage = await container.readFile();

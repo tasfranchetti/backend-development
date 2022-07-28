@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-class Container {
+class ContainerFile {
   constructor(fileName) {
     this.fileName = fileName;
   }
@@ -111,7 +111,7 @@ class Container {
   }
 }
 
-module.exports = Container;
+module.exports = ContainerFile;
 
 //Example file:
 //[{"title":"Hojas","price":2.50,"thumbnail":"https://img.com/","id":1},{"title":"Cuaderno","price":5.5,"thumbnail":"https://img.com/","id":2},{"title":"Mochila","price":15,"thumbnail":"https://img.com/","id":3},{"title":"Lapicera","price":0.5,"thumbnail":"https://img.com/","id":4}]
