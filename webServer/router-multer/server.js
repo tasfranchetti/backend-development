@@ -1,12 +1,7 @@
 const express = require('express');
-const productRouter = require('./classes/router');
+const productRouter = require('./routers/router');
 const app = express();
 const PORT = process.env.PORT || 8080;
-
-const productStorage = async () => {
-  const storage = await container.readFile();
-  return storage || [];
-}
 
 //The app is able to receive json and urlencoded
 app.use(express.json());
