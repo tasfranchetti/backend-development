@@ -9,9 +9,9 @@ class ApiProducts{
     getAllProducts = async (req, res)=>{ 
         try {
             const list = await this.storageOpt.getAll();
-            res.render('partials/productList', {
-                    products: list,
-                    productsExist: true
+            res.render('pages/index', {
+                    content: '../partials/productList',
+                    products: list
                 });
         } catch (error) {
             return {message: error.message}

@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Producto</td>
+        <td>Precio</td>
+        <td>Imagen</td>
+    </tr>
+    {<% for (let item in products) { %>
+        <tr>
+            <td><%item.id%></td>
+            <td><%item.title%></td>
+            <td><%item.price%></td>
+            <td><%item.thumbnail%></td>
+        </tr>
+      <% } %>
+</table>
+<a href="http://localhost:8080/app/index""></a>

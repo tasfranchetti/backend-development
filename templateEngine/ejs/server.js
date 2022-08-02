@@ -1,6 +1,5 @@
 const express = require('express');
 const productRouter = require('./routers/router');
-const handlebars = require("express-handlebars");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
