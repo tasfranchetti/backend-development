@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //static files usage
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 const hbs = handlebars.create({
     extname: ".hbs",

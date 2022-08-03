@@ -9,9 +9,17 @@ class ApiProducts{
     getAllProducts = async (req, res)=>{ 
         try {
             const list = await this.storageOpt.getAll();
-            res.render('productList', {
+            if (list.length != 0) {
+                res.render('productList', {
                     products: list,
+                    productsExist: true
                 });
+            } else {
+                res.render('productList', {
+                    productsExist: false
+                });
+            }
+            
         } catch (error) {
             return {message: error.message}
         }

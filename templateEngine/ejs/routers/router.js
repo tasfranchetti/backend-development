@@ -7,7 +7,7 @@ const router = new Router();
 //GET api/products
 router.get("/index", (req, res) =>{
     res.render('pages/index', {
-        content: '../form'
+        content: '../partials/form'
     });
 })
 

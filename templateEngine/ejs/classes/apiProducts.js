@@ -32,7 +32,9 @@ class ApiProducts{
         try {
             const product = req.body;
             await this.storageOpt.save(product);
-            res.render('partials/form');
+            res.render('pages/index', {
+                content: '../partials/form'
+            });
         } catch (error) {
             return {message: error.message}
         }

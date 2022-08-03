@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-//static files usage
-//app.use(express.static("public"));
+//static files usage - needed to add CSS styles to my 
+app.use(express.static("views"));
 
 app.set("view engine", "ejs");
  

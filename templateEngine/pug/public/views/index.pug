@@ -1,11 +1,13 @@
 html
     head
         title='APIs and Template Engines'
+        link(rel='stylesheet', type='text/css', href='../css/style.css')
     body
-        h1='Ingrese un producto'
-        form(action="/app" method="post") 
-            label #[input(type='texto', name='title')] Producto
-            label #[input(type='texto', name='title')] Precio
-            label #[input(type='texto', name='title')] Imagen
-            button(type="submit")= "Send"
+        div(class="container") 
+            h1='Ingrese un producto'
+            form(action="/app" method="post") 
+                label Producto #[input(type='texto', name='title')] 
+                label Precio #[input(type='texto', name='price')] 
+                label Imagen #[input(type='texto', name='thumbnail')] 
+                button(type="submit")= "Send"
         a(href="http://localhost:8080/app/products")="Ver productos"

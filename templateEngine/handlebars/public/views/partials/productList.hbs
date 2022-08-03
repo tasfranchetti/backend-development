@@ -1,19 +1,24 @@
-<table>
-    <tr>
-        <td>ID</td>
-        <td>Producto</td>
-        <td>Precio</td>
-        <td>Imagen</td>
-    </tr>
-    {{#if productsExist}}
-    {{#each products}}
-    <tr>
-        <td>{{id}}</td>
-        <td>{{title}}</td>
-        <td>{{price}}</td>
-        <td>{{thumbnail}}</td>
-    </tr>
-    {{/each}}
-    {{/if}}
-</table>
-<a href="http://localhost:8080/app/index""></a>
+<div class="container">
+    <table>
+        {{#if productsExist}}
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+            {{#each products}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{price}}</td>
+                    <td>{{thumbnail}}</td>
+                </tr>
+            {{/each}}
+            {{else}}
+            <div id="noProducts">No hay productos agregados</div>
+        {{/if}}
+        
+    </table>
+</div>
+<a href="http://localhost:8080/app/index">Agregar un producto</a>

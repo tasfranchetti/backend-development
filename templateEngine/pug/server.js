@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //static files usage
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.set('views', "./public/views");
 app.set("view engine", "pug");
