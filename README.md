@@ -115,3 +115,51 @@ Endpoints:
 * DELETE: localhost:8080/api/products/:id
 
 ```
+
+## Template engines and API
+tasfranchetti/backend-development/templateEngine
+
+```
+- each API remains testable with Postman - 
+Endpoints:
+* GET: localhost:8080/api/index
+* GET: localhost:8080/api/products
+* GET: localhost:8080/api/:id
+* POST: localhost:8080/api/
+* PUT: localhost:8080/api/:id
+  Body (Raw - JSON)
+  {
+    "title":"Cuaderno",
+    "price":6.0,
+    "thumbnail":"https://img.com/"
+  }
+* DELETE: localhost:8080/api/products/:id
+
+```
+
+### EJS
+./ejs
+
+```
+$ npm install
+$ npm run dev
+
+> express@1.0.4 dev
+> nodemon server.js
+
+```
+
+### Handlebars
+./handlebars
+
+###Pug
+./pug
+
+```
+$ npm install
+$ npm run dev
+
+> express@1.0.4 dev
+> nodemon server.js
+
+```
