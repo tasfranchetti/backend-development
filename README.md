@@ -14,6 +14,8 @@ The names of each section corresponds to it's directory name and is linked to th
 ## Classes
 tasfranchetti/backend-development/classes
 
+We preacticed class creation.
+
 ```
 $ npm install
 $ npm run dev
@@ -29,12 +31,16 @@ Pepe Argento
 ## File System
 tasfranchetti/backend-development/fileSystem
 
+We practiced how to store information from the previous class methods on static files.
+
 ```
 $ npm install
 $ npm run start
 
 > file-system@1.0.1 
 > node test.js
+
+Results from test excecution:
 
 5
 [
@@ -77,6 +83,8 @@ The ID searched does not exists
 ## Web Server
 tasfranchetti/backend-development/webServer
 
+Using the clases previously created we now generated an API that consumes the methods of the class.
+
 ### Express
 ./express
 
@@ -102,17 +110,23 @@ $ npm run dev
 - API testing with Postman - 
 Endpoints:
 
-* GET: localhost:8080/api/products/
-* GET: localhost:8080/api/products/:id
-* POST: localhost:8080/api/products/
-* PUT: localhost:8080/api/products/:id
-  Body (Raw - JSON)
+* GET: localhost:8080/api/products/ (gets all the products)
+* GET: localhost:8080/api/products/:id (gets that product)
+* POST: localhost:8080/api/products/ (creates a product)
+  Example Body (Raw - JSON)
   {
     "title":"Cuaderno",
     "price":6.0,
     "thumbnail":"https://img.com/"
   }
-* DELETE: localhost:8080/api/products/:id
+* PUT: localhost:8080/api/products/:id (updates that product)
+  Example Body (Raw - JSON)
+  {
+    "title":"Cuaderno",
+    "price":6.0,
+    "thumbnail":"https://img.com/"
+  }
+* DELETE: localhost:8080/api/products/:id (deletes that product)
 
 ```
 
@@ -120,46 +134,39 @@ Endpoints:
 tasfranchetti/backend-development/templateEngine
 
 ```
-- each API remains testable with Postman - 
+1- The API created in the previous challenge remains testable with Postman
 Endpoints:
-* GET: localhost:8080/api/index
-* GET: localhost:8080/api/products
-* GET: localhost:8080/api/:id
-* POST: localhost:8080/api/
-* PUT: localhost:8080/api/:id
-  Body (Raw - JSON)
+* GET: localhost:8080/api/index (gets the index)
+* GET: localhost:8080/api/products (gets all the products)
+* GET: localhost:8080/api/:id (gets that product)
+* POST: localhost:8080/api/ (creates a product)
+  Example Body (Raw - JSON)
   {
     "title":"Cuaderno",
     "price":6.0,
     "thumbnail":"https://img.com/"
   }
-* DELETE: localhost:8080/api/products/:id
+* PUT: localhost:8080/api/:id (updates that product)
+  Example Body (Raw - JSON)
+  {
+    "title":"Cuaderno",
+    "price":6.0,
+    "thumbnail":"https://img.com/"
+  }
+* DELETE: localhost:8080/api/products/:id (deletes that product)
 
 ```
+```
+2- Three different template engines were implemented along with CSS
 
+```
 ### EJS
 ./ejs
-
-```
-$ npm install
-$ npm run dev
-
-> express@1.0.4 dev
-> nodemon server.js
-
-```
 
 ### Handlebars
 ./handlebars
 
-###Pug
+### Pug
 ./pug
 
-```
-$ npm install
-$ npm run dev
 
-> express@1.0.4 dev
-> nodemon server.js
-
-```
