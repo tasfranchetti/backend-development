@@ -3,7 +3,7 @@ class Messages {
       this.storedData = [];
     }
   
-    async save(message) {
+    save(message) {
       try {
         if (this.storedData.length === 0) {
             message.id = 1;
@@ -17,9 +17,9 @@ class Messages {
       }
     }
 
-    async getAll(){
+    getAll(){
       try {
-        return Promise.resolve(this.storedData);
+        return this.storedData;
       }
       catch(err) {
         return err;

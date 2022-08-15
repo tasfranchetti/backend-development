@@ -1,31 +1,58 @@
 const express = require('express');
-const productRouter = require('./routers/router');
-const handlebars = require("express-handlebars");
+const {Server: HTTPServer} = require('http');
+const {Server: SocketServer} = require('socket.io');
+const events = require("./socket-events");
+const Products = require("./classes/products");
+const Messages = require("./classes/messages");
+
 const app = express();
-const PORT = process.env.PORT || 8080;
+const httpServer = new HTTPServer(app);
+const socketServer = new SocketServer(httpServer);
 
-//The app is able to receive json and urlencoded
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+const products = new Products();
+const messages = new Messages();
 
-//static files usage
 app.use(express.static("public"));
 
-const hbs = handlebars.create({
-    extname: ".hbs",
-    defaultLayout: "index.hbs",
-    layoutsDir: __dirname + "/public/views/layout",
-    partialsDir: __dirname + "/public/views/partials"
+//Main route
+app.get("/", (res, req) =>{
+    res.sendFile(__dirname + "/public/index.html")
 });
 
-app.engine("hbs", hbs.engine);
-app.set('views', "./public/views");
-app.set("view engine", "hbs");
- 
-app.use('/app', productRouter);
+//Definicion de ciertos eventos
+//socketServer.on para cuando se inicie la conexion por parte del cliente
+//ese param socket seria la conexion del cliente
+socketServer.on("connection", async (socket) =>{
+    console.log("Nuevo usuario conectado");
 
-const server = app.listen(PORT, (req, res)=>{
+    socketServer.emit(
+        events.UPDATE_PRODUCT, 
+        await products.getAll()
+        );
+    
+    socketServer.emit(
+        events.UPDATE_MESSAGE, 
+        messages.getAll()
+        );
+
+    //cuando haya un mensaje/prpducto nuevo sucedera lo siguiente
+    socket.on(events.POST_PRODUCT, async (product) =>{
+        await products.save(product);
+        socketServer.sockets.emit(events.UPDATE_PRODUCT, await products.getAll());
+    });
+
+    socket.on(events.POST_MESSAGE, (msg) =>{
+        const _msg = {
+            ...msg, 
+            unique_id: socket.id,
+            date: Date.now()
+        };
+        messages.save(_msg);
+        socketServer.sockets.emit(events.NEW_MESSAGE, _msg);
+    });
+});
+
+const PORT = process.env.PORT || 3000;
+httpServer.listen(PORT, () => {
     console.log(`Server listening on port: ${PORT}`)
 })
-server.on('error', error => console.log(`Error: ${error}`))
-

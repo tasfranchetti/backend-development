@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIs and Template Engines</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    
+    <div class="container">
+        <h1>Ingrese un producto</h1>
+        <form action="/" method="">
+            Nombre <input type="text" id="title" name="title">
+            Precio <input type="text" id="price" name="price">
+            Foto URL <input type="text" id="thumbnail" name="thumbnail">
+            <button onclick="sendProduct()">Agregar</button>
+        </form>
+        <div id="productList"></div>
+    </div>
+
+
+    <div class="container">
+        <h1>Centro de mensajes</h1>
+        <form action="/" method="">
+            <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com">
+            <input type="text" id="text" name="text" placeholder="Escriba aquí su mensaje">
+            <button onclick="sendMessage()">Enviar</button>
+        </form>
+        <div id="chatBox"></div>
+    </div>
+
+
+    <script 
+    src="https://cdn.socket.io/4.5.0/socket.io.min.js" 
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" 
+    crossorigin="anonymous">
+    </script>
+
+    <script src="./js//main.js"></script>
+</body>
+</html>
