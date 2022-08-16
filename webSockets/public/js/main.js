@@ -3,17 +3,16 @@ const socket = io();
 socket.on("connect", () =>{
     console.log("Conectado al servidor");
 })
-/*
-socket.on('UPDATE_PRODUCT', async (data) => {
+
+socket.on('UPDATE_PRODUCT', async (msg, products) => {
     await fetch('./views/table.hbs')
-        .then(data => data.text())
+        .then(hbsObj => hbsObj.text())
         .then(response => {
             const hbsCompile = Handlebars.compile(response);
-            const html = hbsCompile({ products: data });
+            const html = hbsCompile({ products: products });
             document.getElementById('productList').innerHTML = html;
         })
 })
-*/
 
 socket.on("UPDATE_MESSAGE", (msg, allMessages) =>{
     document.getElementById("chatBox").innerHTML = "";

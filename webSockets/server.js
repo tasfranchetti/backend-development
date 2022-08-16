@@ -35,14 +35,14 @@ socketServer.on("connection", (socket) =>{
     
     socketServer.emit(
         events.UPDATE_MESSAGE, 
-        "Bienvenido al WebSocket", 
+        null, 
         allMessages
         );
 
     //cuando haya un mensaje/prpducto nuevo sucedera lo siguiente
     socket.on(events.POST_PRODUCT, (product) =>{
         products.save(product);
-        socketServer.sockets.emit(events.UPDATE_PRODUCT, allProducts);
+        socketServer.sockets.emit(events.UPDATE_PRODUCT, products.getAll());
     });
 
     socket.on(events.POST_MESSAGE, (msg) =>{
