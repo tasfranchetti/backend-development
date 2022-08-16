@@ -3,7 +3,7 @@ class Products {
     this.storedData = [];
   }
 
-  async save(product) {
+  save(product) {
     try {
       if (this.storedData.length === 0) {
         product.id = 1;
@@ -17,15 +17,13 @@ class Products {
     }
   }
 
-  async getAll(){
+  getAll(){
     try {
-      return Promise.resolve(this.storedData);
+      return this.storedData;
     }
     catch(err) {
       return err;
     }
   }
-
 }
-
 module.exports = Products;

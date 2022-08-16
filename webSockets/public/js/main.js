@@ -3,9 +3,9 @@ const socket = io();
 socket.on("connect", () =>{
     console.log("Conectado al servidor");
 })
-
-socket.on('UPDATE_PRODUCT', (data) => {
-    fetch('./views/table.hbs')
+/*
+socket.on('UPDATE_PRODUCT', async (data) => {
+    await fetch('./views/table.hbs')
         .then(data => data.text())
         .then(response => {
             const hbsCompile = Handlebars.compile(response);
@@ -13,14 +13,13 @@ socket.on('UPDATE_PRODUCT', (data) => {
             document.getElementById('productList').innerHTML = html;
         })
 })
+*/
 
 socket.on("UPDATE_MESSAGE", (msg, allMessages) =>{
     document.getElementById("chatBox").innerHTML = "";
-    if (allMessages) {
-        allMessages
-        .sort((a,b) => a.date - b.date)
-        .forEach(msg => appendMessage(msg));
-    }
+    allMessages
+    .sort((a,b) => a.date - b.date)
+    .forEach(msg => appendMessage(msg));
 });
 
 socket.on("NEW_MESSAGE", (msg) =>{
@@ -30,7 +29,7 @@ socket.on("NEW_MESSAGE", (msg) =>{
 function appendMessage (msg) {
     document.getElementById("chatBox").innerHTML += `
     <div>
-        <b>${msg.nombre} (${msg.date}):</b> ${msg.mensaje}
+        <b>${msg.email} (${msg.date}):</b> ${msg.text}
     </div>
     `;
 }
@@ -45,6 +44,5 @@ function sendProduct(){
 function sendMessage(){
     const email = document.getElementById("email").value;
     const text = document.getElementById("text").value;
-
     socket.emit("POST_MESSAGE", {email, text})
 }

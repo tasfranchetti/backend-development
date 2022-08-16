@@ -12,6 +12,9 @@ const socketServer = new SocketServer(httpServer);
 const products = new Products();
 const messages = new Messages();
 
+const allProducts = products.getAll();
+const allMessages = messages.getAll();
+
 app.use(express.static("public"));
 
 //Main route
@@ -22,23 +25,24 @@ app.get("/", (res, req) =>{
 //Definicion de ciertos eventos
 //socketServer.on para cuando se inicie la conexion por parte del cliente
 //ese param socket seria la conexion del cliente
-socketServer.on("connection", async (socket) =>{
+socketServer.on("connection", (socket) =>{
     console.log("Nuevo usuario conectado");
 
     socketServer.emit(
-        events.UPDATE_PRODUCT, 
-        await products.getAll()
+        events.UPDATE_PRODUCT, null,
+        allProducts
         );
     
     socketServer.emit(
         events.UPDATE_MESSAGE, 
-        messages.getAll()
+        "Bienvenido al WebSocket", 
+        allMessages
         );
 
     //cuando haya un mensaje/prpducto nuevo sucedera lo siguiente
-    socket.on(events.POST_PRODUCT, async (product) =>{
-        await products.save(product);
-        socketServer.sockets.emit(events.UPDATE_PRODUCT, await products.getAll());
+    socket.on(events.POST_PRODUCT, (product) =>{
+        products.save(product);
+        socketServer.sockets.emit(events.UPDATE_PRODUCT, allProducts);
     });
 
     socket.on(events.POST_MESSAGE, (msg) =>{
